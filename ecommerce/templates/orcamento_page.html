@@ -1,0 +1,138 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alomos (Orçamento)</title>
+    <link rel="stylesheet" href="{% static 'Estilo/estilo.css' %}">
+    <script type="text/javascript" src="{% static 'Js/funcoes.js'%}"></script>
+</head>
+<body class="bodyconfig2" id="fundo" style="background-image: url({% static 'Imagens/fund3.png' %});">
+
+<!--Cabecalho-->
+    <header>
+        <div class="cabecalho-reduzido"> 
+            <a href="{% url 'Index' %}"><img class="cabecalho-reduzido-logo" src="{% static 'Imagens/logos/LogoPura.png' %}" width="201" height="50"></a>
+            <nav>
+                <span class="cabecalho-menu" style="margin-top: 20px;">
+                    <a href="{% url 'Index' %}"></a><a href=""><span class="efeito-navbar"style="color: white;">Home </span> </a>&nbsp;&nbsp;&nbsp;&nbsp;
+                    <a href="{% url 'Faleconosco' %}"><span class="efeito-navbar"style="color: white;">Fale Conosco </span> </a>&nbsp;&nbsp;&nbsp;&nbsp;
+                    <a href="{% url 'Apps' %}"><span class="efeito-navbar"style="color: white;">App's Mobile</span> </a>&nbsp;&nbsp;&nbsp;&nbsp;
+                    <a href="{% url 'Websites' %}"><span class="efeito-navbar"style="color: white;">Websites</span> </a>&nbsp;&nbsp;&nbsp;&nbsp;
+                    <a href="{% url 'Programas' %}"><span class="efeito-navbar"style="color: white;">Programas</span> </a>&nbsp;&nbsp;&nbsp;&nbsp;
+                    <a href="{% url 'Sobrenos' %}"><span class="efeito-navbar"style="color: white;">Sobre Nós </span> </a>&nbsp;&nbsp;&nbsp;&nbsp;
+                    <a href="{% url 'Entrar' %}"><span class="efeito-navbar-entrar"style="color: white;">Entrar <img src="{% static 'Imagens/Icones/icon-cadeado.svg' %}" width="10px" alt=""></span> </a>&nbsp;&nbsp;&nbsp;&nbsp;
+                </span>
+            </nav>
+        </div>
+        <div class="cabecalho-linha-azul2"></div>
+    </header>
+    
+<!--Bloco do Meio-->
+    <div class="bloco-orcamento">
+        <div class="bloco-orcamento-cima">
+            <div class="frase-orcamento" style="font-size: 24px;margin-top: 12px;">Orçamento</div>
+
+        </div>
+        <div class="bloco-orcamento-esquerda">
+
+            <div class="frase-deseja" id="fraseOrcamento"><br>Deseja fazer um orçamento de?<br>
+                <div style="color: grey;"><br>
+                    <label for="tipo1"><input type="radio" id="tipo1" name="tipo" onclick="orcamento('Apps')">&nbsp;App Mobile<br></label>
+                    <label for="tipo2"><input type="radio" id="tipo2" name="tipo" onclick="orcamento('Websites')">&nbsp;Websites<br></label>
+                    <label for="tipo3"><input type="radio" id="tipo3" name="tipo" onclick="orcamento('Programas')">&nbsp;Programas</label>
+                </div>
+            </div>
+
+            <div class="frase-linguas" id="fraseLinguas"><br>Quais línguas ele deverá ter?<br>
+                <div style="color: grey;"><br>
+                    <label for="tipo4"><input type="radio" id="tipo4" onclick="orcamento('l1')">&nbsp;Inglês<br></label>
+                    <label for="tipo5"><input type="radio" id="tipo5" onclick="orcamento('l2')">&nbsp;Português<br></label>
+                    <label for="tipo6"><input type="radio" id="tipo6" onclick="orcamento('l3')">&nbsp;Espanhol<br></label>
+                    <label for="tipo7"><input type="radio" id="tipo7" onclick="orcamento('l4')">&nbsp;Francês<br></label> 
+                    <label for="tipo8"><input type="radio" id="tipo8" onclick="orcamento('l5')">&nbsp;Outras<br></label> 
+                </div>
+            </div>
+
+            <div class="frase-dados"><br>Preencha os seguintes dados:<br><br>
+                <input class="dados" type="text" placeholder="&nbsp;&nbsp;Nome completo" id="nome" onblur="verificar('nome')"><br><br>
+                <input class="dados" type="text" placeholder="&nbsp;&nbsp;Número com DDD" id="numero" onblur="verificar('numero')"><br><br>
+                <input class="dados" type="text" placeholder="&nbsp;&nbsp;Email" id="email" onblur="verificar('email')"><br><br>
+                <input class="dados" type="text" placeholder="&nbsp;&nbsp;CPF" id="cpf" onblur="verificar('cpf')"><br><br>
+                <select id="select0" style="height: 30px;width:66.3%;background-color: rgb(238, 238, 238);border: 1px solid grey;">
+                    <option value="1" disabled selected>Estado</option>
+                    <option value="op1">Acre</option>
+                    <option value="op2">Alagoas</option>
+                    <option value="op3">Amapá</option>
+                    <option value="op4">Amazonas</option>
+                    <option value="op5">Bahia</option>
+                    <option value="op6">Ceará</option>
+                    <option value="op7">Distrito Federal</option>
+                    <option value="op8">Espírito Santo</option>
+                    <option value="op9">Goiás</option>
+                    <option value="op10">Maranhão</option>
+                    <option value="op11">Mato Grosso</option>
+                    <option value="op12">Mato Grosso do Sul</option>
+                    <option value="op13">Minas Gerais</option>
+                    <option value="op14">Pará</option>
+                    <option value="op15">Paraíba</option>
+                    <option value="op16">Paraná</option>
+                    <option value="op17">Pernambuco</option>
+                    <option value="op18">Piauí</option>
+                    <option value="op19">Rio de Janeiro</option>
+                    <option value="op20">Rio Grande do Norte</option>
+                    <option value="op21">Rio Grande do Sul</option>
+                    <option value="op22">Rondônia</option>
+                    <option value="op23">Roraima</option>
+                    <option value="op24">Santa Catarina</option>
+                    <option value="op25">São Paulo</option>
+                    <option value="op26">Sergipe</option>
+                    <option value="op27">Tocantins</option>
+                </select><br><br>
+                <input class="dados" type="text" placeholder="&nbsp;&nbsp;Cidade" id="cidade" onblur="verificar('cidade')"><br><br>
+            </div>
+        </div>
+
+        <span class="bloco-orcamento-direita"><br>
+            <div class="bloco-orcamento-frase1" style="text-align: left; margin-left: 5%;" id="fraseProjetoPara">Seu <span id="falaProjeto2">projeto</span> será para um(a) <br> <br>
+                <div style="color: grey;">
+                    <label for="2tipo4"><input type="radio" id="2tipo4" name="e" onblur="orcamento('p')">&nbsp;E-Commerce<br></label>
+                    <label for="2tipo5"><input type="radio" id="2tipo5" name="e" onblur="orcamento('p')">&nbsp;Micro-Empresa<br></label>
+                    <label for="2tipo6"><input type="radio" id="2tipo6" name="e" onblur="orcamento('p')">&nbsp;Empresa de grande porte<br></label>
+                    <label for="2tipo7"><input type="radio" id="2tipo7" name="e" onblur="orcamento('p')">&nbsp;Blog ou Fórum<br></label> 
+                    <label for="2tipo8"><input type="radio" id="2tipo8" name="e" onblur="orcamento('p')">&nbsp;Loja física<br></label> 
+                </div>
+            </div>
+
+            <div class="bloco-orcamento-frase1" id="fraseIdeiaDe"><br>Descreva sua ideia de <span id="falaProjeto">projeto:</span><br><br>
+                <textarea class="caixadetexto" id="FaleConosco" cols="37" rows="23" onblur="verificar('FaleConosco')"></textarea>
+            </div><br>
+            <button onclick="prosseguir()" style="border: 0px;margin-right: 4%;background-color: rgba(255, 255, 255, 0);"><img class="icone-orcamento" src="{% static 'Imagens/Icones/icon-enviar.png'%}"></button>
+        </span>
+    </div>
+
+    <div class="bloco-orcamento-baixo">
+        <div class="frase-orcamento" style="font-size: 23px;margin-top: 5px;">Valor aproximado do <span id="fraseProjetoValor">projeto</span> - <span style="color: rgb(0, 119, 109);">R$: <span id="valor">0000,00</span></span></div>
+    </div>
+
+    <div id="alertaSenha" style="font-size: 0px;"></div><span id="alertaGeral" style="font-size: 0px;"></span><span id="alertaNome" style="font-size: 1px;">&nbsp;</span>
+    <span id="alertaSenha" style="font-size: 0px;"></span><span id="alertaEmail" style="font-size: 0px;"></span><span id="alertaUsuario" style="font-size: 0px;"></span>
+    
+<!--Pé da página-->
+    <footer>
+        <div class="pe" style="margin-top: 980px;"><br>
+            <div class="pe-frase1">
+                <a href="{% url 'Faleconosco' %}" class="link-pe"><span class="linha">Fale Conosco&nbsp;&nbsp;</span></a>
+                <a href="" class="link-pe"><span class="linha">&nbsp;&nbsp;PolÃ­tica de Privacidade&nbsp;&nbsp;</span></a>
+                <a href="{% url 'Trabalheconosco' %}" class="link-pe"><span class="linha">&nbsp;&nbsp;Trabalhe Conosco&nbsp;&nbsp;</span></a>
+                <a href="" class="link-pe"><span class="linha">&nbsp;&nbsp;Seja um Franqueado&nbsp;&nbsp;</span></a>
+                <a href="" class="link-pe"><span class="linha">&nbsp;&nbsp;DÃºvidas Frequentes&nbsp;&nbsp;</span></a>
+                <span>&nbsp;&nbsp;Siga-Nos&nbsp; <sub><a href=""><img class="pe-img" src="{% static 'Imagens/Icones/icon-face-white.png' %}"width="50" height="30"></a>&nbsp;&nbsp;<a href=""><img class="pe-img" src="{% static 'Imagens/Icones/icon-insta-white.png' %}"width="50" height="30"></a></sub></span>
+            </div>
+                <hr class="pe-barra">
+                <div class="pe-frase2">Rua coronel bittencourt casa 197, Bairro: centro, Marica /CEP:24900745</div>
+        </div>
+    </footer>
+</body>
+</html>

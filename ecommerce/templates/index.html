@@ -1,0 +1,197 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alomos (Brasil)</title>
+
+    <link href="https://fonts.googleapis.com/css?family=Barlow&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'Estilo/estilo.css' %}">
+</head>
+
+<body class="bodyconfig1" text="white">
+    
+    
+<!--CabeÃ§alho-->
+
+<header>
+    
+    <div id="box" class="cabecalho" style="z-index: 2;"> 
+        <nav>
+            <img src="{% static  'Imagens/logos/logo.png'  %}"  width="201" height="50" alt="" class="cabecalho-logo">
+            <span class="cabecalho-menu">
+                <a href="{% url 'Index' %}"></a><a href=""><span class="efeito-navbar"style="color: white;">Home </span> </a>&nbsp;&nbsp;&nbsp;&nbsp;
+                    <a href="{% url 'Faleconosco' %}"><span class="efeito-navbar"style="color: white;">Fale Conosco </span> </a>&nbsp;&nbsp;&nbsp;&nbsp;
+                    <a href="{% url 'Apps' %}"><span class="efeito-navbar"style="color: white;">App's Mobile</span> </a>&nbsp;&nbsp;&nbsp;&nbsp;
+                    <a href="{% url 'Websites' %}"><span class="efeito-navbar"style="color: white;">Websites</span> </a>&nbsp;&nbsp;&nbsp;&nbsp;
+                    <a href="{% url 'Programas' %}"><span class="efeito-navbar"style="color: white;">Programas</span> </a>&nbsp;&nbsp;&nbsp;&nbsp;
+                    <a href="{% url 'Sobrenos' %}"><span class="efeito-navbar"style="color: white;">Sobre Nós </span> </a>&nbsp;&nbsp;&nbsp;&nbsp;
+                    <a href="{% url 'Entrar' %}"><span class="efeito-navbar-entrar"style="color: white;">Entrar <img src="{% static 'Imagens/Icones/icon-cadeado.svg' %}" width="10px" alt=""></span> </a>&nbsp;&nbsp;&nbsp;&nbsp;
+            </span>
+        </nav>
+    </div>
+    <div class="cabecalho-linha-azul"></div>
+</header>
+<body class="bodyconfig2" id="fundo" style="background-image: url({% static 'Imagens/fund3.png' %});"></body>
+<!--Bloco 1-->
+<main>
+    <div class="bloco1" style="height: 450px;">
+        <div class="img"></div> 
+            <article>
+                
+                <div class="bodyconfig2" id="fundo" style="background-image: url({% static 'Imagens/logos/Logo-simbolo2.png' %});background-size: cover;background-position: center;background-size: 50%;background-repeat: no-repeat;">
+                <div class="texto" >  </div>
+                <center><br><br><br><br><img class="mobile-gif" src="{% static 'Imagens/gifpronta2.gif' %}" width="500" height="250" alt=""></center>
+                 <center> Desenvolvemos App's Mobile, Websites e  <br> Programas para sua Empresa ou Startup</center> 
+                    <center> <span class="efeito-underline" style="color: rgb(0, 146, 146);">Cadastre-se <span class="tracinho">></span></span> </a>&nbsp;</center>
+                    <center><span class="efeito-underline" style="color: rgb(0, 146, 146);">Faça seu Orçamento <span class="tracinho">></span></span></a></center>
+             
+           </article>
+        </span>
+    </div>
+</main>
+<!--Bloco 2-->
+    
+        <div id="grad2" class="bloco2">
+            <font size="05"> 
+            <div class="frase-bloco2" ><br><br><br> Temos uma equipe completa de designers UX/UI, pronta
+            para desenvolver a melhor interface para sua Empresa. O processo de desenvolvimento da plataforma pode ser 100% acompanhado em nossas unidades e personalizado ao gosto do cliente.<br><br>
+            <b class="frase2-bloco2">Você imagina, nós criamos.</b></div> </font> <br />
+            <span>
+               <br><br><br> <iframe class="img2"  src="{% static 'Imagens/gif18.gif' %}" width="800" height="600"> </iframe>
+            </span> 
+        </div>
+       
+
+<!--Bloco 3-->
+    <div class="bloco3">
+            <br><br><br>
+        <center><div class="frase-bloco3" style="color: rgb(0, 146, 146);">COMO <span class="frase-cor-bloco">TRABALHAMOS?</span></div>
+            <br>
+        <div class="frase2-bloco3">Utilizamos as mais atuais tecnologias do mercado, com uma equipe de programadores Full Stack que dão conta de qualquer pedido.</div>
+            <br><br><br><br></center>
+        <div class="div-icones-bloco3"><center>
+            <span class="margin-icones">
+                <table>
+                    <tr>
+                        <td><img class="icon-effect" src="{% static 'Imagens/logos/logo-react.png' %}" style="margin-right: 20px;width: 140px;"></td>
+                        <td><img class="icon-effect" src="{% static 'Imagens/logos/logo-html.png' %}"  style="width: 154px;"></td>
+                        <td><img class="icon-effect" src="{% static 'Imagens/logos/logo-css.png' %}"   style="margin-left: 30px;width: 110px;"></td>
+                        <td><img class="icon-effect" src="{% static 'Imagens/logos/logo-js.png' %}"    style="margin-left: 50px;width: 120px;"></td>
+                        <td><img class="icon-effect" src="{% static 'Imagens/logos/logo-mysql.png' %}" style="margin-left: 40px;width: 250px;"></td>
+                        <td><img class="icon-effect" src="{% static 'Imagens/logos/logo-jquery.png' %}"style="margin-left: 10px;margin-bottom: 5px;width: 140px;"></td>
+                        <td><img class="icon-effect" src="{% static 'Imagens/logos/logo-magento.png' %}"style="margin-left: 10px;margin-bottom: 10px;width: 190px;"></td>
+                    </tr>
+                </table>
+            </span>
+        </div></center>
+    </div>
+  
+<!--Bloco 4-->
+    <div class="bloco4">
+        <br><br>
+        <div class="frase-bloco4">DEPOIMENTO DOS <span class="frase-cor-bloco">CLIENTES</span></div>
+        <div class="bloco-depoimentos">
+            <table><br>
+                <tr>
+                    <td><img onclick="b1()" src="{% static 'Imagens/Icones/icon-arrow-left.png' %}" style="width: 30px;margin-left: 10px;height: 35px;"></td>
+                    <td><img class="efeito-aumentar" src="" id="tela"width="1400" height="500"></td>
+                    <td><img onclick="b2()" src="{% static 'Imagens/Icones/icon-arrow-right.png' %}" style="width: 30px;margin-right: 10px;height: 35px;"></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+       
+        
+
+<!--Bloco 5-->
+    <div class="bloco5"><br><br><br>     
+        <div class="frase-bloco5" style="color: rgb(0, 146, 146);">NOSSAS <span class="frase-cor-bloco">UNIDADES</span></div><br><br><br>
+        <table>
+                <tr>
+                    <td align="center"><img class="foto-unidade" src="{% static 'Imagens/foto-unidade1.png' %}"width="500" height="400"> 
+                        <div class="frase-unidade" style="position: absolute;margin-left: 3.3%;">
+                            <div class="nome-unidade"></div>
+                            &nbsp;Rio de Janeiro&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <div class="unidade-dados">
+                                Telefone: +55 21 97109-7060<br>
+                                <div style="margin-top: 10px;">Rua coronel bittencourt casa 197, Bairro: centro, Marica /CEP:24900745</div>
+                            </div>
+                        </div>
+                    </td>
+
+                    <td align="center"><img class="foto-unidade" src="{% static 'Imagens/foto-unidade22.jpg' %}"width="500" height="400">
+                        <div class="frase-unidade" style="position: absolute;margin-left: 3.3%;">
+                            <div class="nome-unidade"></div>
+                            &nbsp;SÃo Paulo&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <div class="unidade-dados">
+                                Telefone: +55 21 97159-7780<br>
+                                <div style="margin-top: 10px;">Endereço: Rua Americo Sul, 1923 - Chacara Santo AntÃ´ni, 04715-002.</div> 
+                            </div>
+                        </div>
+                    </td>
+
+                    <td align="center"><img class="foto-unidade" src="{% static 'Imagens/foto-unidade33.jpg' %}"width="500" height="400">
+                        <div class="frase-unidade" style="position: absolute;margin-left: 3.3%;">
+                            <div class="nome-unidade"></div>
+                            &nbsp;Los Angeles&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <div class="unidade-dados">
+                                Telefone: +1 7159-4858<br>
+                                <div style="margin-top: 10px;">Endereço: Baldwin Hills Crenshaw, 4101 Crenshaw Blvd.</div>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+        </table>
+    </div>
+
+<!--PÃ© da pÃ¡gina-->
+    <footer>
+        <div class="pe2"><br>
+            <br><br><br><br><div class="pe-frase1">
+                <a href="{% url 'Faleconosco' %}"><span class="linha">Fale Conosco&nbsp;&nbsp;</span></a>
+                <a href="" class="link-pe"><span class="linha">&nbsp;&nbsp;PolÃ­tica de Privacidade&nbsp;&nbsp;</span></a>
+                <a href="{% url 'Trabalheconosco' %}" class="link-pe"><span class="linha">&nbsp;&nbsp;Trabalhe Conosco&nbsp;&nbsp;</span></a>
+                <a href="" class="link-pe"><span class="linha">&nbsp;&nbsp;Seja um Franqueado&nbsp;&nbsp;</span></a>
+                <a href="" class="link-pe"><span class="linha">&nbsp;&nbsp;DÃºvidas Frequentes&nbsp;&nbsp;</span></a>
+               <span>&nbsp;&nbsp;Siga-Nos&nbsp; <sub><a href=""><img class="pe-img" src="{% static 'Imagens/Icones/icon-face-white.png' %}"width="50" height="30"></a>&nbsp;&nbsp;<a href=""><img class="pe-img" src="{% static 'Imagens/Icones/icon-insta-white.png' %}"width="50" height="30"></a></sub></span>
+            </div>
+            <br><br>
+                <hr class="pe-barra">
+                <div class="pe-frase2">Rua coronel bittencourt casa 197, Bairro: centro, Marica /CEP:24900745</div>
+        </div>
+    </footer>
+    <script>
+        let imagens = [];
+        let i = 0;
+
+        imagens.push("{% static 'Imagens/2barra1.png' %}");
+        imagens.push("{% static 'Imagens/2barra2.png' %}");
+        imagens.push("{% static 'Imagens/2barra3.png' %}");
+        imagens.push("{% static 'Imagens/2barra4.png' %}");
+        imagens.push("{% static 'Imagens/2barra5.png' %}");
+        imagens.push("{% static 'Imagens/2barra6.png' %}");
+        imagens.push("{% static 'Imagens/2barra7.png' %}");
+        imagens.push("{% static 'Imagens/2barra8.png' %}");
+
+        document.getElementById("tela").src = imagens[i];
+
+        function b1(){
+            i--;
+            if(i == -1){
+                i = 7;
+            }
+            document.getElementById("tela").src = imagens[i];
+        }
+
+        function b2(){
+            i++;
+            if(i == 9){
+                i = 0;
+            }
+            document.getElementById("tela").src = imagens[i];
+        }
+    </script>
+</body>
+</html>

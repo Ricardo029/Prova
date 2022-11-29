@@ -1,0 +1,102 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastre-se na Alomos</title>
+    <link rel="stylesheet" href="{% static 'Estilo/estilo.css' %}">
+    <script type="text/javascript" src="{% static 'Js/funcoes.js'%}"></script>
+</head>
+<body class="bodyconfig2" id="fundo" style="background-image: url({% static 'Imagens/fund3.png'%});">
+
+<!--Cabecalho-->
+    <header>
+        <div class="cabecalho-reduzido"> 
+            <a href="{% url 'Index' %}"><img class="cabecalho-reduzido-logo" src="{% static 'Imagens/logos/LogoPura.png' %}"></a>
+            <nav>
+                <span class="cabecalho-menu" style="margin-top: 20px;">
+                    <a href="{% url 'Index' %}"></a><a href=""><span class="efeito-navbar"style="color: white;">Home </span> </a>&nbsp;&nbsp;&nbsp;&nbsp;
+                    <a href="{% url 'Faleconosco' %}"><span class="efeito-navbar"style="color: white;">Fale Conosco </span> </a>&nbsp;&nbsp;&nbsp;&nbsp;
+                    <a href="{% url 'Apps' %}"><span class="efeito-navbar"style="color: white;">App's Mobile</span> </a>&nbsp;&nbsp;&nbsp;&nbsp;
+                    <a href="{% url 'Websites' %}"><span class="efeito-navbar"style="color: white;">Websites</span> </a>&nbsp;&nbsp;&nbsp;&nbsp;
+                    <a href="{% url 'Programas' %}"><span class="efeito-navbar"style="color: white;">Programas</span> </a>&nbsp;&nbsp;&nbsp;&nbsp;
+                    <a href="{% url 'Sobrenos' %}"><span class="efeito-navbar"style="color: white;">Sobre Nós </span> </a>&nbsp;&nbsp;&nbsp;&nbsp;
+                    <a href="{% url 'Entrar' %}"><span class="efeito-navbar-entrar"style="color: white;">Entrar <img src="{% static 'Imagens/Icones/icon-cadeado.svg' %}" width="10px" alt=""></span> </a>&nbsp;&nbsp;&nbsp;&nbsp;
+                </span>
+            </nav>
+        </div>
+        <div class="cabecalho-linha-azul2"></div>
+    </header>
+    
+<!--Bloco do Meio-->
+    <div class="blocomeio" style="margin-top: 90px;">
+        <div class="blocodocadastro" style="height: 700px;">
+
+<!--Logo-->
+            <center> <a href="{% url 'Index' %}"><img class="logodocadastro" src="{% static 'Imagens/logos/LogoNome.png' %}"width="150" height="50"></a></center><br>
+
+<!--Frase1-->
+            <div class="cadastro-frase1">Cadastre-se para fazer orçamentos e checar o status de pedidos.</div><br>
+            
+<!--Entrar com Facebook-->
+            <center>
+                <a href="https://pt-br.facebook.com/"><img src="{% static 'Imagens/Icones/icone-entrar-com-facebook-black.png'%}" width="300" height="100"></a><br><br>
+                
+<!--Ou-->
+                <div class="div-ou"><hr class="barra-ou">OU</div><br>
+            </center>
+
+<!--Caixas de Texto do Cadastro-->
+            <center><div id="alertaEmail" class="margem" style="color: red;">&nbsp;</div></center>
+            <center><input type="text" id="email" onblur="verificar('email')" placeholder="&nbsp;Seu email"></center><br>
+            
+            <center><div id="alertaNome" class="margem">&nbsp;</div></center>
+            <center><input type="text" id="nome" onblur="verificar('nome')" placeholder="&nbsp;Nome completo"></center><br> 
+            
+            <center><div id="alertaUsuario" class="margem">&nbsp;</div></center>
+            <center><input type="text" id="usuario" onblur="verificar('usuario')" placeholder="&nbsp;Nome de usuário"></center><br>
+            
+            <center><div id="alertaSenha" class="margem">&nbsp;</div></center>
+            <center><input type="text" id="senha" onblur="verificar('senha')" placeholder="&nbsp;Senha"></center><br><br>
+
+
+<!--Icone Cadastro-->
+            <center><button style="border: 0px;background-color: rgba(255, 255, 255, 0);" onclick="cadastrar()"><img src="{% static 'Imagens/Icones/icone-cadastre-se-black.png'%}" width="68%"></button></center><br>
+
+<!--Frase2-->
+            <div class="cadastro-frase2">Ao se cadastrar, você concorda com nossos <b>Termos, Política de Dados</b> e <b>Política de Cookies.</b></div>
+        </div>
+    </div>
+
+<!--Pé da página-->
+    <footer>
+        <div class="pe"><br>
+            <div class="pe-frase1">
+                <a href="{% url 'Faleconosco' %}"><span class="linha">Fale Conosco&nbsp;&nbsp;</span></a>
+                <a href="" class="link-pe"><span class="linha">&nbsp;&nbsp;Poli­tica de Privacidade&nbsp;&nbsp;</span></a>
+                <a href="{% url 'Trabalheconosco' %}" class="link-pe"><span class="linha">&nbsp;&nbsp;Trabalhe Conosco&nbsp;&nbsp;</span></a>
+                <a href="" class="link-pe"><span class="linha">&nbsp;&nbsp;Seja um Franqueado&nbsp;&nbsp;</span></a>
+                <a href="" class="link-pe"><span class="linha">&nbsp;&nbsp;Duvidas Frequentes&nbsp;&nbsp;</span></a>
+               <span>&nbsp;&nbsp;Siga-Nos&nbsp; <sub><a href=""><img class="pe-img" src="{% static 'Imagens/Icones/icon-face-white.png' %}"width="50" height="30"></a>&nbsp;&nbsp;<a href=""><img class="pe-img" src="{% static 'Imagens/Icones/icon-insta-white.png' %}"width="50" height="30"></a></sub></span>
+            </div>
+                <hr class="pe-barra">
+                <div class="pe-frase2">Rua coronel bittencourt casa 197, Bairro: centro, Marica /CEP:24900745</div>
+        </div>
+    </footer>
+    <script>
+
+        function cadastrar(){
+            verificar("email");
+            verificar("nome");
+            verificar("usuario");
+            verificar("senha");
+
+            if(temErro == 0 && document.getElementById("email").value !== "" && document.getElementById("nome").value !== ""
+            && document.getElementById("senha").value !== "" && document.getElementById("usuario").value !== ""){
+                window.open("Cadastro2");
+            }
+        }
+    </script>
+</body>
+</html>

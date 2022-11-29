@@ -1,0 +1,57 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alomos (Orçamento)</title>
+    <link rel="stylesheet" href="{% static 'Estilo/estilo.css' %}">
+</head>
+
+<body class="bodyconfig2" id="fundo" style="background-image: url({% static 'Imagens/fund3.png' %});">
+
+<!--Cabecalho-->
+    <header>
+        <div class="cabecalho" style="height: 50px;"> 
+            <a href="{% url 'Index' %}"><img class="cabecalho-reduzido-logo" src="{% static 'Imagens/logos/LogoPura.png' %}" alt="" style="position: fixed;margin-left: 2%;margin-top: 7px;height: 35px;"></a>
+            <nav>
+                <span class="cabecalho-menu" style="margin-top: 20px;">
+                    <a href="{% url 'Index' %}"></a><a href=""><span class="efeito-navbar"style="color: white;">Home </span> </a>&nbsp;&nbsp;&nbsp;&nbsp;
+                    <a href="{% url 'Faleconosco' %}"><span class="efeito-navbar"style="color: white;">Fale Conosco </span> </a>&nbsp;&nbsp;&nbsp;&nbsp;
+                    <a href="{% url 'Apps' %}"><span class="efeito-navbar"style="color: white;">App's Mobile</span> </a>&nbsp;&nbsp;&nbsp;&nbsp;
+                    <a href="{% url 'Websites' %}"><span class="efeito-navbar"style="color: white;">Websites</span> </a>&nbsp;&nbsp;&nbsp;&nbsp;
+                    <a href="{% url 'Programas' %}"><span class="efeito-navbar"style="color: white;">Programas</span> </a>&nbsp;&nbsp;&nbsp;&nbsp;
+                    <a href="{% url 'Sobrenos' %}"><span class="efeito-navbar"style="color: white;">Sobre N�s </span> </a>&nbsp;&nbsp;&nbsp;&nbsp;
+                    <a href="{% url 'Entrar' %}"><span class="efeito-navbar-entrar"style="color: white;">Entrar <img src="{% static 'Imagens/Icones/icon-cadeado.svg' %}" width="10px" alt=""></span> </a>&nbsp;&nbsp;&nbsp;&nbsp;
+                </span>
+            </nav>
+        </div>
+        <div class="cabecalho-linha-azul2"></div>
+    </header>
+    
+<!--Bloco da mensagem-->
+    <div class="bloco-sucesso" style="margin-top: 330px;">
+        <div class="bloco-sucesso2">
+            <div class="frase-sucesso">Orçamento enviado com sucesso!</div>
+            <a href="{% url 'Index' %}" style="text-decoration: none;"><div class="frase2-sucesso">Voltar</div></a>
+        </div>
+    </div>
+
+<!--Pé da página-->
+    <footer>
+        <div class="pe"><br>
+            <div class="pe-frase1">
+                <a href="{% url 'Faleconosco' %}" class="link-pe"><span class="linha">Fale Conosco&nbsp;&nbsp;</span></a>
+                <a href="" class="link-pe"><span class="linha">&nbsp;&nbsp;Política de Privacidade&nbsp;&nbsp;</span></a>
+                <a href="{% url 'Trabalheconosco' %}" class="link-pe"><span class="linha">&nbsp;&nbsp;Trabalhe Conosco&nbsp;&nbsp;</span></a>
+                <a href="" class="link-pe"><span class="linha">&nbsp;&nbsp;Seja um Franqueado&nbsp;&nbsp;</span></a>
+                <a href="" class="link-pe"><span class="linha">&nbsp;&nbsp;Dúvidas Frequentes&nbsp;&nbsp;</span></a>
+                <span>&nbsp;&nbsp;Siga-Nos&nbsp; <sub><a href=""><img class="pe-img" src="{% static 'Imagens/Icones/icon-face-white.png' %}"width="50" height="30"></a>&nbsp;&nbsp;<a href=""><img class="pe-img" src="{% static 'Imagens/Icones/icon-insta-white.png' %}"width="50" height="30"></a></sub></span>
+            </div>
+                <hr class="pe-barra">
+                <div class="pe-frase2">Rua coronel bittencourt casa 197, Bairro: centro, Marica /CEP:24900745</div>
+        </div>
+    </footer>
+    
+</body>
+</html>

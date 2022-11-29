@@ -1,0 +1,95 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alomos (Sobre Nós)</title>
+    <link rel="stylesheet" href="{% static 'Estilo/estilo.css' %}">
+</head>
+
+
+
+<!--Cabecalho-->
+    <header>
+        <div id="box" class="cabecalho-reduzido" style="z-index: 2;"> 
+            <a href="{% url 'Index' %}"><img class="cabecalho-reduzido-logo" src="{% static 'Imagens/logos/LogoPura.png' %}" width="201" height="50"></a>
+            <nav>
+                <span class="cabecalho-menu" style="margin-top: 20px;">
+                    <a href="{% url 'Index' %}"></a><a href=""><span class="efeito-navbar"style="color: white;">Home </span> </a>&nbsp;&nbsp;&nbsp;&nbsp;
+                    <a href="{% url 'Faleconosco' %}"><span class="efeito-navbar"style="color: white;">Fale Conosco </span> </a>&nbsp;&nbsp;&nbsp;&nbsp;
+                    <a href="{% url 'Apps' %}"><span class="efeito-navbar"style="color: white;">App's Mobile</span> </a>&nbsp;&nbsp;&nbsp;&nbsp;
+                    <a href="{% url 'Websites' %}"><span class="efeito-navbar"style="color: white;">Websites</span> </a>&nbsp;&nbsp;&nbsp;&nbsp;
+                    <a href="{% url 'Programas' %}"><span class="efeito-navbar"style="color: white;">Programas</span> </a>&nbsp;&nbsp;&nbsp;&nbsp;
+                    <a href="{% url 'Sobrenos' %}"><span class="efeito-navbar"style="color: white;">Sobre Nós </span> </a>&nbsp;&nbsp;&nbsp;&nbsp;
+                    <a href="{% url 'Entrar' %}"><span class="efeito-navbar-entrar"style="color: white;">Entrar <img src="{% static 'Imagens/Icones/icon-cadeado.svg' %}" width="10px" alt=""></span> </a>&nbsp;&nbsp;&nbsp;&nbsp;
+                </span>
+            </nav>
+        </div>
+        <div class="cabecalho-linha-azul2"></div>
+    </header>
+
+<!--Bloco 1-->
+    <div class="sobre1" style="background-image: url(Videos/Meu-Filme-2.gif);"></div>
+    <div class="sobre2">
+        <div class="sobre-frase1" style="background-image: url(../Alomos/Imagens/logos/Logo-simbolo33.png);"><br><br> Venha conhecer um pouco <br> mais da nossa história</div>
+        <a href="#sobrenos"><iframe class="sobre-seta" id="sobrenos" src="{% static 'Imagens/Icones/arrow-gif.gif' %}"width="300" height="300"></iframe></a>
+    </div> 
+
+<!--Bloco 2-->
+    <div class="sobre-b2">
+        <div class="sobre-frase2">Muito além de uma empresa de software</div>
+        <hr class="sobre-barra">
+        <div class="sobre-ceo"><img src="" class="{% static 'Imagens/CEO.jpg' %}"></div>
+        <div class="sobre-frase3">Ricardo  <span class="sobre-frase4" style="color: rgb(0, 146, 146);">Gomes</span>  (CEO)</div>
+        <div class="sobre-frase5">Nossa empresa foi fundada em 2009, e desde então vem realizando um excelente trabalho no desenvolvimento de diversas plataformas, tendo satisfeito mais de 600 clientes e ganhado 2 vezes o prêmio de melhor aplicativo mobile do ano. Trabalhamos com excelência e prezamos um atendimento de alta qualidade.</div>
+        <div class="sobre-frase6">Como é o nosso espaço de trabalho?</div>
+        <hr class="sobre-barra">
+        <div class="sobre-frase7">Temos um abiente de trabalho descontraído, que estimula a criatividade de nossos desenvolvedores e promove a interação social</div>
+        <video src="{% static 'Videos/Video1.mp4' %}" controls autoplay loop muted class="video"></video>
+        <audio src="{% static 'Videos/musicadefundo.mp3' %}" autoplay></audio>
+    </div>
+<!--Bloco 3-->
+    <div class="sobre-b3">
+        <div class="sobre-bar1">+600<div class="sobre-bar-font">Pedidos entregues</div></div>
+        <div class="sobre-bar2">+1250<div class="sobre-bar-font">Clientes Satisfeitos</div></div>
+        <div class="sobre-bar3">100%<div class="sobre-bar-font">Qualidade alcançada</div></div>
+        <div class="sobre-bar4">+300<div class="sobre-bar-font">Membros da equipe</div></div>
+        <div class="sobre-bar5">0<div class="sobre-bar-font">Arrependimentos</div></div>
+
+    </div>
+
+<!--Bloco 4--> 
+    <div class="sobre-b4">
+        <div class="sobre-frase8">Alguns de nossos prêmios</div>
+        <hr class="sobre-barra">
+        <center><table class="tabela1">
+            <tr>
+                <td><img class="efeito-aumentar" src="{% static 'Imagens/award1.png' %}" style="width: 200px;margin-left: 90px"></td><td><img class="efeito-aumentar" src="{% static 'Imagens/award3.png' %}" style="width: 200px;margin-left: 10px;"></td><td> <img class="efeito-aumentar"  src="{% static 'Imagens/award4.png' %}" style="width: 200px;margin-left: 40px;"></td>
+            </tr>
+        </table></center>
+        <center><table class="tabela2">
+            <tr>
+                <tr><td><img class="efeito-aumentar"  src="{% static 'Imagens/award5.png' %}" style="width: 200px;margin-left: -55px;"></td><td><img  class="efeito-aumentar" src="{% static 'Imagens/award6.png'%}" style="width: 160px;margin-left: 100px;"></td></tr>
+            </tr>
+        </table></center>
+    </div>
+
+<!--Pé da página-->
+    <footer>
+        <div class="pe" style="margin-top: 2907px;"><br>
+            <div class="pe-frase1">
+                <a href="{% url 'Faleconosco' %}"><span class="linha">Fale Conosco&nbsp;&nbsp;</span></a>
+                <a href="" class="link-pe"><span class="linha">&nbsp;&nbsp;Política de Privacidade&nbsp;&nbsp;</span></a>
+                <a href="{% url 'Trabalheconosco' %}" class="link-pe"><span class="linha">&nbsp;&nbsp;Trabalhe Conosco&nbsp;&nbsp;</span></a>
+                <a href="" class="link-pe"><span class="linha">&nbsp;&nbsp;Seja um Franqueado&nbsp;&nbsp;</span></a>
+                <a href="" class="link-pe"><span class="linha">&nbsp;&nbsp;Dúvidas Frequentes&nbsp;&nbsp;</span></a>
+               <span>&nbsp;&nbsp;Siga-Nos&nbsp; <sub><a href=""><img class="pe-img" src="{% static 'Imagens/Icones/icon-face-white.png' %}"width="50" height="30"></a>&nbsp;&nbsp;<a href=""><img class="pe-img" src="{% static 'Imagens/Icones/icon-insta-white.png' %}"width="50" height="30"></a></sub></span>
+            </div>
+                <hr class="pe-barra">
+                <div class="pe-frase2">Rua coronel bittencourt casa 197, Bairro: centro, Marica /CEP:24900745</div>
+        </div>
+    </footer>
+
+</body>
+</html>

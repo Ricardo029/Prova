@@ -1,0 +1,427 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alomos (Fale Conosco)</title>
+    <link rel="stylesheet" href="{% static 'Estilo/estilo.css'%}">
+</head>
+<body class="bodyconfig2" id="fundo" style="background-image: url({% static 'Imagens/fund3.png' %});">
+   
+<!--Cabecalho-->
+    <header>
+        <div class="cabecalho-reduzido"> 
+            <img class="cabecalho-reduzido-logo" src="{% static 'Imagens/logos/LogoPura.png' %}"width="201" height="50" ></a>
+            <nav>
+                <span class="cabecalho-menu" style="margin-top: 20px;">
+                    <a href="{% url 'Index' %}"></a><a href=""><span class="efeito-navbar"style="color: white;">Home </span> </a>&nbsp;&nbsp;&nbsp;&nbsp;
+                    <a href="{% url 'Faleconosco' %}"><span class="efeito-navbar"style="color: white;">Fale Conosco </span> </a>&nbsp;&nbsp;&nbsp;&nbsp;
+                    <a href="{% url 'Apps' %}"><span class="efeito-navbar"style="color: white;">App's Mobile</span> </a>&nbsp;&nbsp;&nbsp;&nbsp;
+                    <a href="{% url 'Websites' %}"><span class="efeito-navbar"style="color: white;">Websites</span> </a>&nbsp;&nbsp;&nbsp;&nbsp;
+                    <a href="{% url 'Programas' %}"><span class="efeito-navbar"style="color: white;">Programas</span> </a>&nbsp;&nbsp;&nbsp;&nbsp;
+                    <a href="{% url 'Sobrenos' %}"><span class="efeito-navbar"style="color: white;">Sobre Nos </span> </a>&nbsp;&nbsp;&nbsp;&nbsp;
+                    <a href="{% url 'Entrar' %}"><span class="efeito-navbar-entrar"style="color: white;">Entrar <img src="{% static 'Imagens/Icones/icon-cadeado.svg' %}" width="10px" alt=""></span> </a>&nbsp;&nbsp;&nbsp;&nbsp;
+                </span>
+            </nav>
+        </div>
+        <div class="cabecalho-linha-azul2"></div>
+    </header>
+    
+<!--Bloco do Meio-->
+
+<center>
+<table>
+   
+<div class="bloco-orcamento">
+    <div class="bloco-meio-fale" style="margin-top: 10px;"><br>
+        <div class="fale-frase1"><span class="efeito-navbar"style="color: white;">Fale Conosco</span></div>
+    </div>
+
+    <div class="bloco-meio-fale-baixo" style="height: 630px;">
+        
+        <div class="fale-frase2"><span class="efeito-navbar"style="color: white;">Por favor, preencha todos os dados.</span></div><br>
+        <div class="fale-div2">
+            <select name="" id="select0" class="fale-select">
+                <option value="1" disabled selected>Qual motivo do seu contato?</option>
+                <option value="op1">Desejo fazer uma reclamação</option>
+                <option value="op2">Desejo fazer um elogio</option>
+                <option value="op3">Desejo fazer uma sugestão</option>
+                <option value="op4">Outro motivo</option>
+            </select>
+          
+        </div>
+        <div class="fale-dado"><input type="text" style="width: 500px;" id="nome" onblur="verificar('nome')" placeholder="&nbsp;&nbsp; Nome e Sobrenome"></div>
+        <div class="fale-dado"><input type="text" style="width: 500px;" id="email" onblur="verificar('email')" placeholder="&nbsp;&nbsp; Email"></div>
+        <div class="fale-dado"><input type="text" style="width: 240px;" id="cpf" onblur="verificar('cpf')" placeholder="&nbsp;&nbsp; CPF"><span>
+        <input type="text" style="width: 240px;margin-left: 10px;" id="numero" onblur="verificar('numero')" placeholder="&nbsp;&nbsp; Número de Contato com DDD"></span></div><br>
+        <center><span id="alertaGeral" style="color: red;font-family: sans-serif;">&nbsp;</span></center>
+        <br><div class="fale-dado2"><span class="efeito-navbar"style="color: white;">Deixe uma mensagem para nós:</span></div><br>
+        <div class="fale-div2">
+            <textarea id="faleConosco" onblur="verificar('Faleconosco')" cols="80" rows="15" class="fale-textarea"></textarea>
+        </div>
+        <center><button onclick="enviar()" style="border: 0px;background-color: rgba(255, 255, 255, 0);"><img src="{% static 'Imagens/Icones/icon-enviar.png' %}" style="width: 240px;margin-top: 10px;"></button></center>
+    </div>
+
+</div>
+</table>
+</center>
+
+
+<!--Pé da página-->
+    <footer>
+        <div class="pe"><br>
+            <div class="pe-frase1">
+                <span class="linha">Fale Conosco&nbsp;&nbsp;</span></a>
+                <span class="linha">&nbsp;&nbsp;Política de Privacidade&nbsp;&nbsp;</span></a>
+                <span class="linha">&nbsp;&nbsp;Trabalhe Conosco&nbsp;&nbsp;</span></a>
+                <span class="linha">&nbsp;&nbsp;Seja um Franqueado&nbsp;&nbsp;</span></a>
+                <span class="linha">&nbsp;&nbsp;Dúvidas Frequentes&nbsp;&nbsp;</span></a>
+                <span>&nbsp;&nbsp;Siga-Nos&nbsp; <sub><a href=""><img class="pe-img" src="{% static 'Imagens/Icones/icon-face-white.png' %}"width="35" height="35"></a>&nbsp;&nbsp;<a href=""><img class="pe-img" src="{% static 'Imagens/Icones/icon-insta-white.png' %}"width="35" height="35"></a></sub></span>
+            </div>
+            <hr class="pe-barra">
+            <div class="pe-frase2">Rua coronel bittencourt casa 197 centro marica</div>
+        </div>
+    </footer>
+    <script>
+        let temErro = 0; //Variavel que controla a existencia de erro nos campos
+        let tudoCerto = 0;
+        let i = 2;
+        let alertaGeral = document.getElementById("alertaGeral");
+
+        function verificar(campo){
+            switch(campo){
+                case"email":
+                    let email = document.getElementById("email").value.trim();
+                    
+                    if(email == ""){ //Checa se o email está vazio
+                        document.getElementById("email").style.borderColor = "red";
+                        document.getElementById("email").style.borderWidth = "2px";
+                        alertaGeral.innerHTML = "Corrija o(s) campo(s) inválidos";
+                        temErro = 1;
+                    }
+                    else{
+                        if(email.length < 5){ //Checa se o email tem menos de 5 caracteres
+                            document.getElementById("email").style.borderColor = "red";
+                            document.getElementById("email").style.borderWidth = "2px";
+                            alertaGeral.innerHTML = "Corrija o(s) campo(s) inválidos";
+                            temErro = 1;
+                        }
+                        else{
+                            if(email.indexOf("@") !== email.lastIndexOf("@")){ //Checa se o email tem mais de um "@"
+                                document.getElementById("email").style.borderColor = "red";
+                                document.getElementById("email").style.borderWidth = "2px";
+                                alertaGeral.innerHTML = "Corrija o(s) campo(s) inválidos";
+                                temErro = 1;
+                            }
+                            else{
+                                if(email.includes(" ")){ //Checa se o email tem espacos vazios
+                                    document.getElementById("email").style.borderColor = "red";
+                                    document.getElementById("email").style.borderWidth = "2px";
+                                    alertaGeral.innerHTML = "Corrija o(s) campo(s) inválidos";
+                                    temErro = 1;
+                                }
+                                else{
+                                    if(email.indexOf("@") == "-1" || email.indexOf(".com") == "-1"){ //Checa se o email contem os requisitos "@" e ".com"
+                                        document.getElementById("email").style.borderColor = "red";
+                                        document.getElementById("email").style.borderWidth = "2px";
+                                        alertaGeral.innerHTML = "Corrija o(s) campo(s) inválidos";
+                                        temErro = 1;
+                                    }
+                                    else{
+                                        if(email.indexOf(".com") !== email.lastIndexOf(".com")){ //Checa se o email tem dois ".com"
+                                            document.getElementById("email").style.borderColor = "red";
+                                            document.getElementById("email").style.borderWidth = "2px";
+                                            alertaGeral.innerHTML = "Corrija o(s) campo(s) inválidos";
+                                            temErro = 1;
+                                        }
+                                        else{
+                                            if(email.indexOf(".com") < email.indexOf("@")){ //Checa se o .com vem depois do @
+                                                document.getElementById("email").style.borderColor = "red";
+                                                document.getElementById("email").style.borderWidth = "2px";
+                                                alertaGeral.innerHTML = "Corrija o(s) campo(s) inválidos";
+                                                temErro = 1;
+                                            }
+                                            else{
+                                                if(email.indexOf(".com") == 0||email.indexOf("@") == 0||email.includes("..")||email.indexOf(".") == 0||email.indexOf(".")<email.indexOf("@")
+                                                ||email.lastIndexOf(".")>email.indexOf(".com")){ //Checa se o email comeca com .com ou @
+                                                    document.getElementById("email").style.borderColor = "red";
+                                                    document.getElementById("email").style.borderWidth = "2px";
+                                                    alertaGeral.innerHTML = "Corrija o(s) campo(s) inválidos";
+                                                    temErro = 1;
+                                                }
+                                                else{ //Confere se tem caractere especial
+                                                    if(email.includes("$")||email.includes("*")||email.includes("&")||email.includes("%")||email.includes("!")||email.includes("ˆ")||email.includes("{")
+                                                    ||email.includes("`")||email.includes("-")||email.includes("=")||email.includes("+")||email.includes("|")||email.includes("}")
+                                                    ||email.includes("[")||email.includes("]")||email.includes(";")||email.includes(":")||email.includes("?")||email.includes("#")||email.includes("˜")
+                                                    ||email.includes(",")){
+                                                        document.getElementById("email").style.borderColor = "red";
+                                                        document.getElementById("email").style.borderWidth = "2px";
+                                                        alertaGeral.innerHTML = "Corrija o(s) campo(s) inválidos";
+                                                        temErro = 1;
+                                                    }
+                                                    else{ //Tudo ok
+                                                        document.getElementById("email").style.borderColor = "";
+                                                        document.getElementById("email").style.borderWidth = "1px";
+                                                        alertaGeral.innerHTML = "";
+                                                        temErro = 0;
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                break;
+
+                case"nome":
+                    let nome = document.getElementById("nome").value.trim();
+
+                    while(nome.includes("  ")){ //Corrige o nome caso o usuario tenha digitado mais de um espaço entre eles
+                        nome = nome.replace("  "," ");
+                    }
+
+                    if(nome == ""){ //Checa se o nome está vazio
+                        document.getElementById("nome").style.borderColor = "red";
+                        document.getElementById("nome").style.borderWidth = "2px";
+                        alertaGeral.innerHTML = "Corrija o(s) campo(s) inválidos";
+                        temErro = 1;
+                    }
+                    else{
+                        if(nome.length < 3){ //Caso o nome seja pequeno demais
+                            document.getElementById("nome").style.borderColor = "red";
+                            document.getElementById("nome").style.borderWidth = "2px";
+                            alertaGeral.innerHTML = "Corrija o(s) campo(s) inválidos";
+                            temErro = 1;
+                        }
+                        else{
+                            if(nome.indexOf(" ") == "-1"){ //Caso o sobrenome nao seja digitado
+                                document.getElementById("nome").style.borderColor = "red";
+                                document.getElementById("nome").style.borderWidth = "2px";
+                                alertaGeral.innerHTML = "Corrija o(s) campo(s) inválidos";
+                                temErro = 1;
+                            }
+                            else{ //Confere se o campo tem algum caractere especial
+                                if(nome.includes("$")||nome.includes("*")||nome.includes("&")||nome.includes("%")||nome.includes("!")||nome.includes("ˆ")||nome.includes("{")
+                                ||nome.includes("`")||nome.includes("@")||nome.includes("-")||nome.includes("=")||nome.includes("+")||nome.includes("|")||nome.includes("}")
+                                ||nome.includes("[")||nome.includes("]")||nome.includes(";")||nome.includes(":")||nome.includes("?")||nome.includes("#")||nome.includes("˜")
+                                ||nome.includes(",")){
+                                    document.getElementById("nome").style.borderColor = "red";
+                                    document.getElementById("nome").style.borderWidth = "2px";
+                                    alertaGeral.innerHTML = "Corrija o(s) campo(s) inválidos";
+                                    temErro = 1;
+                                }
+                                else{ //Confere se o campo tem números
+                                    if(nome.includes("1")||nome.includes("2")||nome.includes("3")||nome.includes("4")||nome.includes("5")
+                                    ||nome.includes("6")||nome.includes("7")||nome.includes("8")||nome.includes("9")||nome.includes("0")){
+                                        document.getElementById("nome").style.borderColor = "red";
+                                        document.getElementById("nome").style.borderWidth = "2px";
+                                        alertaGeral.innerHTML = "Corrija o(s) campo(s) inválidos";
+                                        temErro = 1;
+                                    }
+                                    else{ //Tudo ok
+                                        document.getElementById("nome").style.borderColor = "";
+                                        document.getElementById("nome").style.borderWidth = "1px";    
+                                        alertaGeral.innerHTML = "&nbsp";                            
+                                        temErro = 0;
+                                        document.getElementById("nome").value = nome;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                break;   
+                    
+                case"cpf":
+                    let cpf = document.getElementById("cpf").value.trim().toUpperCase();
+
+                    while(cpf.includes(" ")||cpf.includes(".")||cpf.includes("-")){ //Corrige o cpf caso o usuario tenha digitado um espaço entre eles
+                        cpf = cpf.replace(" ","");
+                        cpf = cpf.replace(".","");
+                        cpf = cpf.replace("-","");
+                    }
+
+                    if(cpf == ""){ //Checa se o campo está vazio
+                        document.getElementById("cpf").style.borderColor = "red";
+                        document.getElementById("cpf").style.borderWidth = "2px";
+                        alertaGeral.innerHTML = "Corrija o(s) campo(s) inválidos";
+                        temErro = 1;
+                    }
+                    else{
+                        if(cpf.length !== 11){ //Checa se o cpf tem 11 dígitos
+                            document.getElementById("cpf").style.borderColor = "red";
+                            document.getElementById("cpf").style.borderWidth = "2px";
+                            alertaGeral.innerHTML = "Corrija o(s) campo(s) inválidos";
+                            temErro = 1;
+                        }
+                        else{ //Checa se o cpf contem caractere especial ou letras
+                            if(cpf.includes("$")||cpf.includes("*")||cpf.includes("&")||cpf.includes("%")||cpf.includes("!")||cpf.includes("ˆ")||cpf.includes("{")
+                            ||cpf.includes("`")||cpf.includes("-")||cpf.includes("=")||cpf.includes("+")||cpf.includes("|")||cpf.includes("}")||cpf.includes(".")
+                            ||cpf.includes("[")||cpf.includes("]")||cpf.includes(";")||cpf.includes(":")||cpf.includes("?")||cpf.includes("#")||cpf.includes("˜")
+                            ||cpf.includes(",")||cpf.includes("A")||cpf.includes("B")||cpf.includes("C")||cpf.includes("D")||cpf.includes("E")||cpf.includes("F")
+                            ||cpf.includes("G")||cpf.includes("H")||cpf.includes("I")||cpf.includes("J")||cpf.includes("K")||cpf.includes("L")||cpf.includes("M")
+                            ||cpf.includes("N")||cpf.includes("O")||cpf.includes("P")||cpf.includes("Q")||cpf.includes("R")||cpf.includes("S")||cpf.includes("T")
+                            ||cpf.includes("U")||cpf.includes("V")||cpf.includes("W")||cpf.includes("X")||cpf.includes("Y")||cpf.includes("Z")||cpf.includes("Ç")){
+                                document.getElementById("cpf").style.borderColor = "red";
+                                document.getElementById("cpf").style.borderWidth = "2px";
+                                alertaGeral.innerHTML = "Corrija o(s) campo(s) inválidos";
+                                temErro = 1;
+                            }
+                            else{
+                                if(cpf.includes("11111")||cpf.includes("22222")||cpf.includes("33333")||cpf.includes("44444")||cpf.includes("55555")||
+                                cpf.includes("66666")||cpf.includes("77777")||cpf.includes("88888")||cpf.includes("99999")||cpf.includes("00000")){
+                                    document.getElementById("cpf").style.borderColor = "red";
+                                    document.getElementById("cpf").style.borderWidth = "2px";
+                                    alertaGeral.innerHTML = "Corrija o(s) campo(s) inválidos";
+                                    temErro = 1;
+                                }
+                                else{ //Tudo ok e poe a máscara no cpf
+                                    let cpf1 = cpf.substring(0,3);
+                                    let cpf2 = cpf.substring(3,6);
+                                    let cpf3 = cpf.substring(6,9);
+                                    let cpf4 = cpf.substring(9,11);
+                                    cpf = cpf1+"."+cpf2+"."+cpf3+"-"+cpf4;   
+                                    document.getElementById("cpf").value = cpf;
+                                    document.getElementById("cpf").style.borderColor = "";
+                                    document.getElementById("cpf").style.borderWidth = "1px";
+                                    alertaGeral.innerHTML = "";
+                                    temErro = 0;
+                                }
+                            }
+                        }
+                    }
+                break;
+
+                case"numero":
+                    let numero = document.getElementById("numero").value.trim().toUpperCase();
+
+                    while(numero.includes(" ")||numero.includes("(")||numero.includes(")")||numero.includes("-")){ //Corrige o cpf caso o usuario tenha digitado um espaço entre eles
+                        numero = numero.replace(" ","");
+                        numero = numero.replace("(","");
+                        numero = numero.replace(")","");
+                        numero = numero.replace("-","");
+                    }
+
+                    while(numero.indexOf("0") == 0){
+                        numero = numero.substring(1, numero.length);
+                    }
+
+                    if(numero == ""){ //Checa se o campo está vázio
+                        document.getElementById("numero").style.borderColor = "red";
+                        document.getElementById("numero").style.borderWidth = "2px";
+                        alertaGeral.innerHTML = "Corrija o(s) campo(s) inválidos";
+                        temErro = 1;
+                    }
+                    else{
+                        if(numero.length !== 11){ //Checa se o numero tem 11 digitos
+                            document.getElementById("numero").style.borderColor = "red";
+                            document.getElementById("numero").style.borderWidth = "2px";
+                            alertaGeral.innerHTML = "Corrija o(s) campo(s) inválidos";
+                            temErro = 1;
+                        }
+                        else{
+                            if(numero.includes("$")||numero.includes("*")||numero.includes("&")||numero.includes("%")||numero.includes("!")||numero.includes("ˆ")||numero.includes("{")
+                            ||numero.includes("`")||numero.includes("-")||numero.includes("=")||numero.includes("+")||numero.includes("|")||numero.includes("}")||numero.includes(".")
+                            ||numero.includes("[")||numero.includes("]")||numero.includes(";")||numero.includes(":")||numero.includes("?")||numero.includes("#")||numero.includes("˜")
+                            ||numero.includes(",")||numero.includes("A")||numero.includes("B")||numero.includes("C")||numero.includes("D")||numero.includes("E")||numero.includes("F")
+                            ||numero.includes("G")||numero.includes("H")||numero.includes("I")||numero.includes("J")||numero.includes("K")||numero.includes("L")||numero.includes("M")
+                            ||numero.includes("N")||numero.includes("O")||numero.includes("P")||numero.includes("Q")||numero.includes("R")||numero.includes("S")||numero.includes("T")
+                            ||numero.includes("U")||numero.includes("V")||numero.includes("W")||numero.includes("X")||numero.includes("Y")||numero.includes("Z")||numero.includes("Ç")){
+                            //Checa se tem algum caractere especial ou letra no numero
+                                document.getElementById("numero").style.borderColor = "red";
+                                document.getElementById("numero").style.borderWidth = "2px";
+                                alertaGeral.innerHTML = "Corrija o(s) campo(s) inválidos";
+                                temErro = 1;
+                            }
+                            else{ //Checa se tem muitos caracteres repetidos
+                                if(numero.includes("11111111")||numero.includes("22222222")||numero.includes("33333333")||numero.includes("44444444")||numero.includes("55555555")||
+                                numero.includes("66666666")||numero.includes("77777777")||numero.includes("88888888")||numero.includes("99999999")||numero.includes("00000000")){
+                                    document.getElementById("numero").style.borderColor = "red";
+                                    document.getElementById("numero").style.borderWidth = "2px";
+                                    alertaGeral.innerHTML = "Corrija o(s) campo(s) inválidos";
+                                    temErro = 1;
+                                }
+                                else{ //Tudo ok e coloca a máscara no número
+                                    let n1 = numero.substring(0,2);
+                                    let n2 = numero.substring(2,7);
+                                    let n3 = numero.substring(7,11);
+                                    numero = "(0"+n1+")"+" "+n2+"-"+n3;
+                                    document.getElementById("numero").style.borderColor = "";
+                                    document.getElementById("numero").style.borderWidth = "1px";
+                                    alertaGeral.innerHTML = "";
+                                    temErro = 0;
+                                    document.getElementById("numero").value = numero;
+                                } 
+                            }
+                        }
+                    }
+                break;
+
+                case"faleConosco":
+                    let faleConosco = document.getElementById("faleConosco").value.trim();
+
+                    while(faleConosco.includes("  ")){ //Substitui duplos espaços
+                        faleConosco = faleConosco.replace("  "," ");
+                    }
+
+                    if(faleConosco == ""){ //Checa se o campo está vazio
+                        document.getElementById("faleConosco").style.borderColor = "red";
+                        document.getElementById("faleConosco").style.borderWidth = "2px";
+                        alertaGeral.innerHTML = "Corrija o(s) campo(s) inválidos";
+                        temErro = 1;
+                    }
+                    else{
+                        if(faleConosco.length < 5){ //Checa se tem no mínimo 5 caracteres
+                            document.getElementById("faleConosco").style.borderColor = "red";
+                            document.getElementById("faleConosco").style.borderWidth = "2px";
+                            alertaGeral.innerHTML = "Corrija o(s) campo(s) inválidos";
+                            temErro = 1;
+                        }
+                        else{ //Tudo ok
+                            document.getElementById("faleConosco").style.borderColor = "";
+                            document.getElementById("faleConosco").style.borderWidth = "1px";
+                            alertaGeral.innerHTML = "";
+                            temErro = 0;
+                            document.getElementById("faleConosco").value = faleConosco;
+                        }
+                    }
+                break;   
+                
+                case"select0":
+                    let selecte0 = document.getElementById("select0").value;
+
+                    if(selecte0 == 1){
+                        document.getElementById("select0").style.borderColor = "red";
+                        document.getElementById("select0").style.borderWidth = "2px";
+                        alertaGeral.innerHTML = "Corrija o(s) campo(s) inválidos";
+                        temErro = 1;
+                    }
+                    else{
+                        document.getElementById("select0").style.color = "";
+                        alertaGeral.innerHTML = "";
+                        temErro = 0;
+                    }
+                break;                
+            }        
+        }      
+        
+        function enviar(){
+            verificar("select0");
+            verificar("email");
+            verificar("nome");
+            verificar("cpf");
+            verificar("numero");
+            verificar("faleConosco");
+
+            if(temErro == 0 && document.getElementById("email").value !== "" && document.getElementById("nome").value !== "" &&
+            document.getElementById("numero").value !== "" && document.getElementById("cpf").value !== "" &&
+            document.getElementById("select0").value !== "1" && document.getElementById("faleConosco").value !== ""){
+                window.open("Faleconosco2")
+            }
+        }
+    </script>
+   
+</body>
+</html>
